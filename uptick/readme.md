@@ -1,15 +1,16 @@
 ## Minimum Sistem Gereksinimleri
 
-**CPU:** 3 CPU 
-**RAM:** 4 GB 
-**DISK:** 80 GB
+```
+3CPU 4RAM 80GB
+```
 
 ## Önerilen Sistem Gereksinimleri
 
-**CPU:** 3CPU 
-**RAM:** 4 GB 
-**DISK:** 80 GB
+```
+4CPU 8RAM 160GB
+```
 
-### _Değişkenleri Ayarlama_
-***
-## _The Last Markdown Editor, Ever_
+### Otomatik Kurulum
+```
+source <(curl -s https://raw.githubusercontent.com/nodejumper-org/cosmos-scripts/master/uptick/uptick_7000-2/install.sh)
+```
