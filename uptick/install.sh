@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source <(curl -s https://raw.githubusercontent.com/nodejumper-org/cosmos-scripts/master/utils/common.sh)
+source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/common.sh?token=GHSAT0AAAAAAB6XXJ6HP7TYZEC5ZTYRAEX2ZALUWVA)
 
 printLogo
 
-read -r -p "Enter node moniker: " NODE_MONIKER
+read -r -p "Node isim giriniz: " NODE_MONIKER
 
 CHAIN_ID="uptick_7000-2"
 CHAIN_DENOM="auptick"
