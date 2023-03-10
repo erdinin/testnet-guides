@@ -12,5 +12,5 @@
 
 ### Otomatik Kurulum
 ```
-source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/uptick/install.sh?token=GHSAT0AAAAAAB6XXJ6GQDBJYLC2N3P7S36OZALUTRQ)
+source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/uptick/install.sh)
 ```
