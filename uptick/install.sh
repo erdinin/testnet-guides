@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/common.sh?token=GHSAT0AAAAAAB6XXJ6HP7TYZEC5ZTYRAEX2ZALUWVA)
+source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/common.sh)
 
 printLogo
 
