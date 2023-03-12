@@ -86,9 +86,9 @@ uptickd tx staking create-validator \
 ```
 uptickd q staking validator $(uptickd keys show wallet --bech val -a)
 ```
-## Kullanışlı Komutlar
+### Kullanışlı Komutlar
 
-## Cüzdan/Key
+### Cüzdan/Key
 ***
 #### yeni cüzdan ekleme
 ```
@@ -118,7 +118,7 @@ uptickd keys import cüzdan-adi cüzdan-adi.backup
 ```
 uptickd q bank balances $(uptickd keys show cüzdan-adi -a)
 ```
-## Validator/Moniker
+### Validator/Moniker
 ***
 #### yeni validator oluşturma (gerekli yerler doldurunuz.)
 ```
@@ -173,7 +173,7 @@ uptickd q staking validators -oj --limit=3000 | jq '.validators[] | select(.stat
 ```
 uptickd q staking validator $(uptickd keys show cüzdan-adi --bech val -a)  
 ```
-## Token
+### Token
 ***
 #### bütün validatorlerin ödüllerini çek
 ```
@@ -203,7 +203,7 @@ uptickd tx staking unbond $(uptickd keys show cüzdan-adi --bech val -a) 4000000
 ```
 uptickd tx bank send cüzdan-adi alici-adresi 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
 ```
-## Governance
+### Governance
 ***
 #### yeni teklif oluşturma
 ```
@@ -243,7 +243,7 @@ uptickd tx gov vote 1 no_with_veto --from cüzdan-adi --chain-id uptick_7000-2 -
 uptickd tx gov vote 1 abstain --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
 ```
 
-## Çeşitli Komutlar
+### Çeşitli Komutlar
 ***
 #### validator bilgileri
 ```
