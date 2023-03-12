@@ -6,13 +6,13 @@
 ### Minimum Sistem Gereksinimleri
 
 ```
-3CPU 4RAM 80GB
+4CPU 8RAM 100GB
 ```
 
 ### Önerilen Sistem Gereksinimleri
 
 ```
-4CPU 8RAM 160GB
+8CPU 32RAM 200GB
 ```
 #### Eğer [Manual Kurulum](https://github.com/erdinin/testnet-guides/blob/main/uptick/manual-guide.md) yapacaksanız. Yaptıktan sonra Validator Oluşturma kısımından devam ediniz.
 ### Otomatik Kurulum
