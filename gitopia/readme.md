@@ -14,7 +14,7 @@
 ```
 8CPU 32RAM 200GB
 ```
-#### Eğer [Manual Kurulum](https://github.com/erdinin/testnet-guides/blob/main/uptick/manual-guide.md) yapacaksanız. Yaptıktan sonra Validator Oluşturma kısımından devam ediniz.
+#### Eğer [Manual Kurulum](https://github.com/erdinin/testnet-guides/blob/main/gitopia/manual-guide.md) yapacaksanız. Yaptıktan sonra Validator Oluşturma kısımından devam ediniz.
 ### Otomatik Kurulum
 ```
 source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/gitopia/install.sh)
