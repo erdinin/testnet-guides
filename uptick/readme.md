@@ -16,7 +16,7 @@
 ```
 4CPU 8RAM 160GB
 ```
-
+### [Manual Kurulum](github.com)
 ### Otomatik Kurulum
 ```
 source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/uptick/install.sh)
