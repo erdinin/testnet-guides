@@ -16,7 +16,7 @@
 ```
 4CPU 8RAM 160GB
 ```
-#### [Manual Kurulum](github.com)
+#### Eğer [Manual Kurulum](https://github.com/erdinin/testnet-guides/blob/main/uptick/manual-guide.md) yapacaksanız. Yaptıktan sonra Validator Oluşturma kısımından devam ediniz.
 ### Otomatik Kurulum
 ```
 source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/uptick/install.sh)
