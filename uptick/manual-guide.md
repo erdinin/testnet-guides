@@ -137,3 +137,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable gitopiad
 sudo systemctl restart gitopiad && sudo journalctl -u gitopiad -f -o cat
 ```
+
+### Bu işlemlerden sonra validator oluşturma kısmından devam ediniz.
