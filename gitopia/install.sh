@@ -1,7 +1,8 @@
 #!/bin/bash
 
+source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/common.sh)
 
-
+printLogo
 
 sleep 2
 
