@@ -82,7 +82,7 @@ uptickd tx staking create-validator \
 --from=wallet \
 -y
 ```
-# validator detaylarınızı aşağıdaki komutla görebilirsiniz. 
+### validator detaylarınızı aşağıdaki komutla görebilirsiniz. 
 ```
 uptickd q staking validator $(uptickd keys show wallet --bech val -a)
 ```
