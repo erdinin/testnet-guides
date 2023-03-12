@@ -52,7 +52,7 @@ uptickd status 2>&1 | jq .SyncInfo.catching_up
 $faucet YOUR_WALLET_ADDRESS
 ```
 
-### token aldıktan sonra cüzdanımızı kontrol edelim.
+#### token aldıktan sonra cüzdanımızı kontrol edelim.
 ```
 uptickd q bank balances $(uptickd keys show wallet -a)
 ```
