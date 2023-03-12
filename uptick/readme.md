@@ -1,5 +1,7 @@
 ### Uptick Hakkında
 
+<p align="left">[Twitter](https://breakdance.github.io/breakdance/)
+</p>
 <p align="left"> <a href="https://uptick.network/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/website.svg" width="32" height="32" /></a> <a href="https://uptick.explorers.guru/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/blocks.svg" width="32" height="32" /></a> <a href="https://www.github.com/UptickNetwork" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="30" height="30" /></a> <a href="https://discord.gg/BwQXH3jm7C" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/discord.svg" width="34" height="34" /></a> <a href="https://uptickproject.medium.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/medium.svg" width="32" height="32" /></a> <a href="https://www.twitter.com/uptickproject" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/twitter.svg" width="35" height="35" /></a> </a></p>
 
 ***
