@@ -52,7 +52,7 @@ uptickd status 2>&1 | jq .SyncInfo.catching_up
 $faucet YOUR_WALLET_ADDRESS
 ```
 
-# token aldıktan sonra cüzdanımızı kontrol edelim.
+### token aldıktan sonra cüzdanımızı kontrol edelim.
 ```
 uptickd q bank balances $(uptickd keys show wallet -a)
 ```
@@ -86,3 +86,199 @@ uptickd tx staking create-validator \
 ```
 uptickd q staking validator $(uptickd keys show wallet --bech val -a)
 ```
+## Kullanışlı Komutlar
+
+## Cüzdan/Key
+***
+#### yeni cüzdan ekleme
+```
+uptickd keys add cüzdan-adi
+```
+#### mevcut cüzdanı kurtarma
+```
+uptickd keys add cüzdan-adi --recover
+```
+#### cüzdanları listeleme
+```
+uptickd keys list
+```
+#### cüzdan silme
+```
+uptickd keys delete cüzdan-adi
+```
+#### cüzdan dışa aktarma (cüzdan-adi.backup şeklinde kayıt edin)
+```
+uptickd keys export cüzdan-adi
+```
+#### cüzdan içe aktarma
+```
+uptickd keys import cüzdan-adi cüzdan-adi.backup
+```
+#### cüzdan bakiye öğrenme
+```
+uptickd q bank balances $(uptickd keys show cüzdan-adi -a)
+```
+## Validator/Moniker
+***
+#### yeni validator oluşturma (gerekli yerler doldurunuz.)
+```
+uptickd tx staking create-validator \
+--amount=1000000auptick \
+--pubkey=$(uptickd tendermint show-validator) \
+--moniker="validator-adi" \
+--identity=F287570B99E59F81 (keybase) \
+--details="https://xyznodes.xyz" \
+--chain-id=uptick_7000-2 \
+--commission-rate=0.10  \
+--commission-max-rate=0.20 \
+--commission-max-change-rate=0.01 \
+--min-self-delegation=1 \
+--from=cüzdan-adi \
+--gas-prices=0.1auptick \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y 
+```
+#### validator düzenleme
+```
+uptickd tx staking edit-validator \
+--new-moniker="validator-adi" \
+--identity=F287570B99E59F81 (keybase) \
+--details="https://xyznodes.xyz" \
+--chain-id=uptick_7000-2 \
+--commission-rate=0.1 \
+--from=cüzdan-adi \
+--gas-prices=0.1auptick \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y 
+```
+#### validator unjail
+```
+uptickd tx slashing unjail --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y 
+```
+#### signing info
+```
+uptickd query slashing signing-info $(uptickd tendermint show-validator)  
+```
+#### aktif validatorleri listele
+```
+uptickd q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl  
+```
+#### inaktif validatorleri listele
+```
+uptickd q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED") or .status=="BOND_STATUS_UNBONDING")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl  
+```
+#### validator detaylarını görüntüle
+```
+uptickd q staking validator $(uptickd keys show cüzdan-adi --bech val -a)  
+```
+## Token
+***
+#### bütün validatorlerin ödüllerini çek
+```
+uptickd tx distribution withdraw-all-rewards --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y 
+```
+#### validatorunuzun komisyon ve ödüllerini çekin
+```
+uptickd tx distribution withdraw-rewards $(uptickd keys show cüzdan-adi --bech val -a) --commission --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+```
+#### kendinize delege etme
+```
+uptickd tx staking delegate $(uptickd keys show cüzdan-adi --bech val -a) 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+```
+#### delegate
+```
+uptickd tx staking delegate valoper adresi 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+```
+#### redelegate
+```
+uptickd tx staking redelegate $(uptickd keys show cüzdan-adi --bech val -a) valoper adresi 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+```
+#### unbound
+```
+uptickd tx staking unbond $(uptickd keys show cüzdan-adi --bech val -a) 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+```
+#### token gönderme
+```
+uptickd tx bank send cüzdan-adi alici-adresi 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+```
+## Governance
+***
+#### yeni teklif oluşturma
+```
+uptickd tx gov submit-proposal \
+--title="Başlık" \
+--description="Açıklama" \
+--deposit=1000000auptick \
+--type="Text" \
+--from=cüzdan-adi \
+--gas-prices=0.1auptick \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y   
+```
+#### tüm proposal/teklifleri görüntüle
+```
+uptickd query gov proposals  
+```
+#### id'e göre proposal görüntüleme. örnek: 1.
+```
+uptickd query gov proposal 1  
+```
+#### evet oyu verme
+```
+uptickd tx gov vote 1 yes --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+```
+#### hayır oyu verme 
+```
+uptickd tx gov vote 1 no --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+```
+#### no_with_veto oyu verme
+```
+uptickd tx gov vote 1 no_with_veto --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+```
+#### ABSTAIN oyu verme
+```
+uptickd tx gov vote 1 abstain --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+```
+
+## Çeşitli Komutlar
+***
+#### validator bilgileri
+```
+uptickd status 2>&1 | jq .ValidatorInfo  
+```
+#### ip adresi öğrenme
+```
+ wget -qO- eth0.me 
+```
+#### servisleri yeniden yükleme
+```
+sudo systemctl daemon-reload 
+```
+#### servis etkinleştirme
+```
+sudo systemctl enable uptickd 
+```
+#### servis devre dışı bırakma
+```
+sudo systemctl disable uptickd 
+```
+#### servis çalıştırma
+```
+sudo systemctl start uptickd  
+```
+#### restart service
+```
+sudo systemctl restart uptickd 
+```
+#### servis durumu kontrol etme
+```
+sudo systemctl status uptickd 
+```
+#### servis logları
+```
+sudo journalctl -u uptickd -f --no-hostname -o cat
+```
+
