@@ -1,9 +1,7 @@
 ### Gitopia Hakkında
 
-<p align="left"> <a href="https://gitopia.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/website.svg" width="32" height="32" /></a> <a href="https://uptick.explorers.guru/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/blocks.svg" width="32" height="32" /></a> <a href="https://www.github.com/UptickNetwork" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="30" height="30" /></a> <a href="https://discord.gg/BwQXH3jm7C" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/discord.svg" width="34" height="34" /></a> <a href="https://uptickproject.medium.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/medium.svg" width="32" height="32" /></a> <a href="https://www.twitter.com/uptickproject" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/twitter.svg" width="35" height="35" /></a> </a></p>
-
+>[Twitter](https://twitter.com/uptickproject) | [Github](https://github.com/UptickNetwork) | [Website](https://uptick.network/) | [Medium](https://uptickproject.medium.com/) |  [Discord](https://discord.gg/BwQXH3jm7C) |  [Explorer](https://uptick.explorers.guru/) | [Stake With Us!](https://uptick.explorers.guru/validator/uptickvaloper1xf30vm6xw9s5ulfgfxjcnj8yv6704nwq3jrjau)
 ***
-<a href="https://uptick.explorers.guru/validator/uptickvaloper1xf30vm6xw9s5ulfgfxjcnj8yv6704nwq3jrjau"><img src="https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/button.svg" width="200" /></a>
 ## Kurulum
 ### Minimum Sistem Gereksinimleri
 
