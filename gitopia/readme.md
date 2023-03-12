@@ -1,6 +1,6 @@
 ### Gitopia Hakkında
 
->[Twitter](https://twitter.com/uptickproject) | [Github](https://github.com/UptickNetwork) | [Website](https://uptick.network/) | [Medium](https://uptickproject.medium.com/) |  [Discord](https://discord.gg/BwQXH3jm7C) |  [Explorer](https://uptick.explorers.guru/) | [Stake With Us!](https://uptick.explorers.guru/validator/uptickvaloper1xf30vm6xw9s5ulfgfxjcnj8yv6704nwq3jrjau)
+>[Twitter](https://twitter.com/gitopiaDAO) | [Github](https://gitopia.com/gitopia) | [Website](https://gitopia.com/) | [Docs](https://docs.gitopia.com/) |  [Discord](https://discord.gg/eKHqZGXW2S) |  [Explorer](https://gitopia.explorers.guru/) | [Stake With Us!](https://gitopia.explorers.guru/validator/gitopiavaloper1qvf9ge9jhf8d0gf72mce4ptty95ecfs8up22qp)
 ***
 ## Kurulum
 ### Minimum Sistem Gereksinimleri
