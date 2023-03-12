@@ -23,12 +23,12 @@ source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/u
 ```
 ### Validator Oluşturma
 ***
-### _Cüzdan Oluşturma_
+#### _Cüzdan Oluşturma_
 ```
 uptickd keys add wallet
 ```
 
-### _Örnek Çıktı_:
+#### _Örnek Çıktı_:
 ```
 - name: wallet
   type: local
