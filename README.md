@@ -1,3 +1,3 @@
 ### testnet-guides
 
-[Uptick](https://test.com/)
+> [Uptick](https://github.com/erdinin/testnet-guides/tree/main/uptick)
