@@ -1,5 +1,3 @@
-### İletişim
-> [website](https://www.xyznodes.xyz) | [twitter](https://twitter.com/xyznodes)
 ## kurulum-rehberleri
 ### mainnet
 > soon
@@ -11,3 +9,5 @@
 > soon
 ### tamamlanan
 > [Subspace](https://subspace.network/) | [Aptos](https://aptoslabs.com/) | [Minima Global](https://www.minima.global/) 
+### İletişim
+> [website](https://www.xyznodes.xyz) | [twitter](https://twitter.com/xyznodes)
