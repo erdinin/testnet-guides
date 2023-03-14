@@ -1,7 +1,6 @@
 ### İletişim
 > [website](https://www.xyznodes.xyz) | [twitter](https://twitter.com/xyznodes)
-### kurulum-rehberleri
-***
+## kurulum-rehberleri
 ### mainnet
 > soon
 ### testnet
