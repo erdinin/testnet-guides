@@ -1,4 +1,4 @@
-### Lava Network Hakkında
+### Shardeum Hakkında
 
 >[Twitter](https://twitter.com/shardeum) | [Github](https://github.com/Shardeum) | [Website](https://shardeum.org/) | [Docs](https://docs.shardeum.org/) |  [Discord](https://discord.gg/shardeum) |  [Explorer](https://explorer-sphinx.shardeum.org/) | [Stake With Us!](https://explorer-sphinx.shardeum.org/)
 ***
