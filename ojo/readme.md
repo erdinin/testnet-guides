@@ -1,4 +1,4 @@
-### Uptick Hakkında
+### Ojo Hakkında
 
 >[Twitter](https://twitter.com/ojo_network) | [Github](https://github.com/ojo-network) | [Website](https://ojo.network/) | [Telegram](https://t.me/OjoNetwork) |  [Discord](https://discord.gg/c8SaeRa3uZ) |  [Explorer](https://ojo.explorers.guru/) | [xyznodes-Validator](https://ojo.explorers.guru/validator/ojovaloper1x6qr9v8ahe4an4u32g3qylnv4ez584r84tq4lk)
 ***
@@ -171,4 +171,187 @@ sudo journalctl -u price-feeder -f --no-hostname -o cat
 
 ##### Kurulum tamamlandı. https://ojo.explorers.guru/validators üzerinde kendi adımızı aratarak bulabilirsiniz. 
 
-#### 
+### Kullanışlı Komutlar
+
+### Cüzdan/Key
+***
+#### yeni cüzdan ekleme
+```
+ojod keys add cüzdan-adı
+```
+#### mevcut cüzdanı kurtarma
+```
+ojod keys add cüzdan-adı --recover
+```
+#### cüzdanları listeleme
+```
+ojod keys list
+```
+#### cüzdan silme
+```
+ojod keys delete cüzdan-adı
+```
+#### cüzdan dışa aktarma (cüzdan-adi.backup şeklinde kayıt edin)
+```
+ojod keys export cüzdan-adı
+```
+#### cüzdan içe aktarma
+```
+ojod keys import cüzdan-adı cüzdan-adı.backup
+```
+#### cüzdan bakiye öğrenme
+```
+ojod q bank balances $(ojod keys show cüzdan-adı -a)
+```
+### Validator/Moniker
+***
+#### yeni validator oluşturma (gerekli yerler doldurunuz.)
+```
+ojod tx staking create-validator \
+--amount=9000000uojo \
+--pubkey=$(ojod tendermint show-validator) \
+--moniker="validator-adı" \
+--identity=F287570B99E59F81 (keybase) \
+--details="bir şeyler yazın" \
+--website="varsa web siteniz" \
+--chain-id=ojo-devnet \
+--commission-rate=0.1 \
+--commission-max-rate=0.2 \
+--commission-max-change-rate=0.05 \
+--min-self-delegation=1 \
+--fees=2000uojo \
+--from=cüzdan-adı \
+-y
+```
+#### validator düzenleme
+```
+ojod tx staking edit-validator \
+--new-moniker="validator-adı" \
+--identity=F287570B99E59F81 \
+--details="node runner 💨 testnet addict 💻" \
+--chain-id=ojo-devnet \
+--commission-rate=0.1 \
+--from=cüzdan-adı \
+--gas=auto \
+-y 
+```
+#### validator unjail
+```
+ojod tx slashing unjail --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y
+```
+#### signing info
+```
+ojod query slashing signing-info $(ojod tendermint show-validator)  
+```
+#### aktif validatorleri listele
+```
+ojod q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+```
+#### inaktif validatorleri listele
+```
+ojod q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED") or .status=="BOND_STATUS_UNBONDING")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+```
+#### validator detaylarını görüntüle
+```
+ojod q staking validator $(ojod keys show cüzdan-adı --bech val -a)  
+```
+### Token
+***
+#### bütün validatorlerin ödüllerini çek
+```
+ojod tx distribution withdraw-all-rewards --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y 
+```
+#### validatorunuzun komisyon ve ödüllerini çekin
+```
+ojod tx distribution withdraw-rewards $(ojod keys show cüzdan-adı --bech val -a) --commission --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y  
+```
+#### kendinize delege etme
+```
+ojod tx staking delegate $(ojod keys show cüzdan-adı --bech val -a) 1000000uojo --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y  
+```
+#### delegate
+```
+ojod tx staking delegate valoper_adresi 1000000uojo --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y   
+```
+#### redelegate
+```
+ojod tx staking redelegate $(ojod keys show cüzdan-adı --bech val -a) valoper-adresi 1000000uojo --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y    
+```
+#### unbond
+```
+ojod tx staking unbond $(ojod keys show cüzdan-adı --bech val -a) 1000000uojo --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y  
+```
+#### token gönderme
+```
+ojod tx bank send cüzdan-adı YOUR_TO_WALLET_ADDRESS 1000000uojo --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y   
+```
+### Governance
+***
+#### yeni teklif oluşturma
+```
+ojod tx gov submit-proposal \
+--title="Başlık" \
+--description="Açıklama" \
+--deposit=1000000uojo \
+--type="Text" \
+--from=cüzdan-adı \
+--gas-prices=0.1uojo \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y
+```
+#### tüm proposal/teklifleri görüntüle
+```
+ojod query gov proposals  
+```
+#### id'e göre proposal görüntüleme. örnek: 1.
+```
+ojod query gov proposal 1  
+```
+#### evet oyu verme
+```
+ojod tx gov vote 1 yes --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y   
+```
+#### hayır oyu verme 
+```
+ojod tx gov vote 1 no --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y    
+```
+#### no_with_veto oyu verme
+```
+ojod tx gov vote 1 no_with_veto --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y    
+```
+#### ABSTAIN oyu verme
+```
+ojod tx gov vote 1 abstain --from cüzdan-adı --chain-id ojo-devnet --gas-prices 0.1uojo --gas-adjustment 1.5 --gas auto -y    
+```
+
+### Çeşitli Komutlar
+***
+#### validator bilgileri
+```
+ojod status 2>&1 | jq .ValidatorInfo  
+```
+#### ip adresi öğrenme
+```
+ wget -qO- eth0.me 
+```
+#### servisleri yeniden yükleme
+```
+sudo systemctl daemon-reload 
+```
+#### servis etkinleştirme
+```
+sudo systemctl enable ojod 
+```
+#### servis devre dışı bırakma
+```
+sudo systemctl disable ojod 
+```
+#### servis çalıştırma
+```
+sudo systemctl start ojod  
+```
+#### restart service
+```
+sudo systemctl restart ojod 
+``` 
