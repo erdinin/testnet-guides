@@ -1,6 +1,6 @@
 ### Uptick Hakkında
 
->[Twitter](https://twitter.com/uptickproject) | [Github](https://github.com/UptickNetwork) | [Website](https://uptick.network/) | [Medium](https://uptickproject.medium.com/) |  [Discord](https://discord.gg/BwQXH3jm7C) |  [Explorer](https://uptick.explorers.guru/) | [Stake With Us!](https://uptick.explorers.guru/validator/uptickvaloper1xf30vm6xw9s5ulfgfxjcnj8yv6704nwq3jrjau)
+>[Twitter](https://twitter.com/uptickproject) | [Github](https://github.com/UptickNetwork) | [Website](https://uptick.network/) | [Medium](https://uptickproject.medium.com/) |  [Discord](https://discord.gg/BwQXH3jm7C) |  [Explorer](https://uptick.explorers.guru/) | [xyznodes-Validator](https://uptick.explorers.guru/validator/uptickvaloper1xf30vm6xw9s5ulfgfxjcnj8yv6704nwq3jrjau)
 ***
 ## Kurulum
 ### Minimum Sistem Gereksinimleri
