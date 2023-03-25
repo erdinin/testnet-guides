@@ -87,162 +87,162 @@ gitopiad q staking validator $(gitopiad keys show wallet --bech val -a)
 ***
 #### yeni cüzdan ekleme
 ```
-uptickd keys add cüzdan-adi
+gitopiad keys add cüzdan-adi
 ```
 #### mevcut cüzdanı kurtarma
 ```
-uptickd keys add cüzdan-adi --recover
+gitopiad keys add cüzdan-adi --recover
 ```
 #### cüzdanları listeleme
 ```
-uptickd keys list
+gitopiad keys list
 ```
 #### cüzdan silme
 ```
-uptickd keys delete cüzdan-adi
+gitopiad keys delete cüzdan-adi
 ```
 #### cüzdan dışa aktarma (cüzdan-adi.backup şeklinde kayıt edin)
 ```
-uptickd keys export cüzdan-adi
+gitopiad keys export cüzdan-adi
 ```
 #### cüzdan içe aktarma
 ```
-uptickd keys import cüzdan-adi cüzdan-adi.backup
+gitopiad keys import cüzdan-adi cüzdan-adi.backup
 ```
 #### cüzdan bakiye öğrenme
 ```
-uptickd q bank balances $(uptickd keys show cüzdan-adi -a)
+gitopiad q bank balances $(gitopiad keys show cüzdan-adi -a)
 ```
 ### Validator/Moniker
 ***
 #### yeni validator oluşturma (gerekli yerler doldurunuz.)
 ```
-uptickd tx staking create-validator \
---amount=1000000auptick \
---pubkey=$(uptickd tendermint show-validator) \
+gitopiad tx staking create-validator \
+--amount=1000000utlore \
+--pubkey=$(gitopiad tendermint show-validator) \
 --moniker="validator-adi" \
 --identity=F287570B99E59F81 (keybase) \
 --details="https://xyznodes.xyz" \
---chain-id=uptick_7000-2 \
+--chain-id=gitopia-janus-testnet-2 \
 --commission-rate=0.10  \
 --commission-max-rate=0.20 \
 --commission-max-change-rate=0.01 \
 --min-self-delegation=1 \
 --from=cüzdan-adi \
---gas-prices=0.1auptick \
+--gas-prices=0.1utlore \
 --gas-adjustment=1.5 \
 --gas=auto \
 -y 
 ```
 #### validator düzenleme
 ```
-uptickd tx staking edit-validator \
+gitopiad tx staking edit-validator \
 --new-moniker="validator-adi" \
 --identity=F287570B99E59F81 (keybase) \
 --details="https://xyznodes.xyz" \
---chain-id=uptick_7000-2 \
+--chain-id=gitopia-janus-testnet-2 \
 --commission-rate=0.1 \
 --from=cüzdan-adi \
---gas-prices=0.1auptick \
+--gas-prices=0.1utlore \
 --gas-adjustment=1.5 \
 --gas=auto \
 -y 
 ```
 #### validator unjail
 ```
-uptickd tx slashing unjail --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y 
+gitopiad tx slashing unjail --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y 
 ```
 #### signing info
 ```
-uptickd query slashing signing-info $(uptickd tendermint show-validator)  
+gitopiad query slashing signing-info $(gitopiad tendermint show-validator)  
 ```
 #### aktif validatorleri listele
 ```
-uptickd q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl  
+gitopiad q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl  
 ```
 #### inaktif validatorleri listele
 ```
-uptickd q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED") or .status=="BOND_STATUS_UNBONDING")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl  
+gitopiad q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED") or .status=="BOND_STATUS_UNBONDING")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl  
 ```
 #### validator detaylarını görüntüle
 ```
-uptickd q staking validator $(uptickd keys show cüzdan-adi --bech val -a)  
+gitopiad q staking validator $(gitopiad keys show cüzdan-adi --bech val -a)  
 ```
 ### Token
 ***
 #### bütün validatorlerin ödüllerini çek
 ```
-uptickd tx distribution withdraw-all-rewards --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y 
+gitopiad tx distribution withdraw-all-rewards --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y 
 ```
 #### validatorunuzun komisyon ve ödüllerini çekin
 ```
-uptickd tx distribution withdraw-rewards $(uptickd keys show cüzdan-adi --bech val -a) --commission --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+gitopiad tx distribution withdraw-rewards $(gitopiad keys show cüzdan-adi --bech val -a) --commission --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y  
 ```
 #### kendinize delege etme
 ```
-uptickd tx staking delegate $(uptickd keys show cüzdan-adi --bech val -a) 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+gitopiad tx staking delegate $(gitopiad keys show cüzdan-adi --bech val -a) 4000000000000000000utlore --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y  
 ```
 #### delegate
 ```
-uptickd tx staking delegate valoper adresi 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+gitopiad tx staking delegate valoper adresi 4000000000000000000utlore --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y  
 ```
 #### redelegate
 ```
-uptickd tx staking redelegate $(uptickd keys show cüzdan-adi --bech val -a) valoper adresi 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+gitopiad tx staking redelegate $(gitopiad keys show cüzdan-adi --bech val -a) valoper adresi 4000000000000000000utlore --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y   
 ```
 #### unbound
 ```
-uptickd tx staking unbond $(uptickd keys show cüzdan-adi --bech val -a) 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+gitopiad tx staking unbond $(gitopiad keys show cüzdan-adi --bech val -a) 4000000000000000000utlore --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y  
 ```
 #### token gönderme
 ```
-uptickd tx bank send cüzdan-adi alici-adresi 4000000000000000000auptick --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+gitopiad tx bank send cüzdan-adi alici-adresi 4000000000000000000utlore --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y  
 ```
 ### Governance
 ***
 #### yeni teklif oluşturma
 ```
-uptickd tx gov submit-proposal \
+gitopiad tx gov submit-proposal \
 --title="Başlık" \
 --description="Açıklama" \
---deposit=1000000auptick \
+--deposit=1000000utlore \
 --type="Text" \
 --from=cüzdan-adi \
---gas-prices=0.1auptick \
+--gas-prices=0.1utlore \
 --gas-adjustment=1.5 \
 --gas=auto \
 -y   
 ```
 #### tüm proposal/teklifleri görüntüle
 ```
-uptickd query gov proposals  
+gitopiad query gov proposals  
 ```
 #### id'e göre proposal görüntüleme. örnek: 1.
 ```
-uptickd query gov proposal 1  
+gitopiad query gov proposal 1  
 ```
 #### evet oyu verme
 ```
-uptickd tx gov vote 1 yes --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y  
+gitopiad tx gov vote 1 yes --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y  
 ```
 #### hayır oyu verme 
 ```
-uptickd tx gov vote 1 no --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+gitopiad tx gov vote 1 no --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y   
 ```
 #### no_with_veto oyu verme
 ```
-uptickd tx gov vote 1 no_with_veto --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+gitopiad tx gov vote 1 no_with_veto --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y   
 ```
 #### ABSTAIN oyu verme
 ```
-uptickd tx gov vote 1 abstain --from cüzdan-adi --chain-id uptick_7000-2 --gas-prices 0.1auptick --gas-adjustment 1.5 --gas auto -y   
+gitopiad tx gov vote 1 abstain --from cüzdan-adi --chain-id gitopia-janus-testnet-2 --gas-prices 0.1utlore --gas-adjustment 1.5 --gas auto -y   
 ```
 
 ### Çeşitli Komutlar
 ***
 #### validator bilgileri
 ```
-uptickd status 2>&1 | jq .ValidatorInfo  
+gitopiad status 2>&1 | jq .ValidatorInfo  
 ```
 #### ip adresi öğrenme
 ```
@@ -254,26 +254,26 @@ sudo systemctl daemon-reload
 ```
 #### servis etkinleştirme
 ```
-sudo systemctl enable uptickd 
+sudo systemctl enable gitopiad 
 ```
 #### servis devre dışı bırakma
 ```
-sudo systemctl disable uptickd 
+sudo systemctl disable gitopiad 
 ```
 #### servis çalıştırma
 ```
-sudo systemctl start uptickd  
+sudo systemctl start gitopiad  
 ```
 #### restart service
 ```
-sudo systemctl restart uptickd 
+sudo systemctl restart gitopiad 
 ```
 #### servis durumu kontrol etme
 ```
-sudo systemctl status uptickd 
+sudo systemctl status gitopiad 
 ```
 #### servis logları
 ```
-sudo journalctl -u uptickd -f --no-hostname -o cat
+sudo journalctl -u gitopiad -f --no-hostname -o cat
 ```
 
