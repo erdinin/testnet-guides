@@ -4,7 +4,7 @@ source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/u
 
 printLogo
 
-read -r -p "Enter node moniker: " NODE_MONIKER
+read -r -p "Node adinizi girin: " NODE_MONIKER
 
 CHAIN_ID="galileo-3"
 CHAIN_DENOM="uandr"
