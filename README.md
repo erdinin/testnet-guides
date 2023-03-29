@@ -1,4 +1,4 @@
-# ❤ xyznodes.xyz
+# 🖤 xyznodes.xyz
 
 #### hello frens 👾🧪
 

@@ -1,6 +1,6 @@
 # Table of contents
 
-* [❤ xyznodes.xyz](README.md)
+* [🖤 xyznodes.xyz](README.md)
 * [base](base/readme.md)
 * [gitopia](gitopia/readme.md)
   * [manual-guide](gitopia/manual-guide.md)
