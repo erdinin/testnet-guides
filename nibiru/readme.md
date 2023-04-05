@@ -16,69 +16,68 @@
 ***
 ### Otomatik Kurulum
 ```
-source <(curl -s https://raw.githubusercontent.com/nodejumper-org/cosmos-scripts/master/ojo/ojo-devnet/install.sh)
+source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/nibiru/install.sh)
 ```
 ### Validator Oluşturma
 ***
 #### _Cüzdan Oluşturma_
 ```
-ojod keys add cüzdan-adı
+nibid keys add cüzdan-adı
 ```
 
 #### _Örnek Çıktı_:
 ```
 - name: wallet
-    type: local
-    address: ojo1ela8c0jhqgjsj2cq7twu9uhda2n8e6cs8ztxs3
-    pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"Auq9WzVEs5pCoZgr2WctjI7fU+lJCH0I3r6GC1oa0tc0"}'
-    mnemonic: ""
+   type: local
+   address: nibi1r9kmadqs9nsppn4wz5yp4rw8zn9545rc4zwvs7
+   pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"Auq9WzVEs5pCoZgr2WctjI7fU+lJCH0I3r6GC1oa0tc0"}'
+   mnemonic: ""
 
 #!!! seed phrase kısmını mutlaka kayıt edin.
 kite upset hip dirt pet winter thunder slice parent flag sand express suffer chest custom pencil mother bargain remember patient other curve cancel sweet
 ```
 #### priv_validator_key.json dosyasını kayıt edin
 ```
-cat $HOME/.ojo/config/priv_validator_key.json
+cat $HOME/.nibid/config/priv_validator_key.json
 ```
 #### false çıktısı alana kadar bekleyin.
 ```
-ojod status 2>&1 | jq .SyncInfo.catching_up
+nibid status 2>&1 | jq .SyncInfo.catching_up
 ```
-#### [Discord](https://discord.gg/c8SaeRa3uZ) token isteyin.
+#### `buraya cüzdan adresinizi girin` kısmını değiştirin.
 ```
-CALISTA#1429 yardımcı olacaktır.
+FAUCET_URL="https://faucet.itn-1.nibiru.fi/"
+ADDR="buraya cüzdan adresinizi girin"
+curl -X POST -d '{"address": "'"$ADDR"'", "coins": ["11000000unibi","100000000unusd","100000000uusdt"]}' $FAUCET_URL
 ```
-
 #### token aldıktan sonra cüzdanımızı kontrol edelim.
 ```
-ojod q bank balances $(ojod keys show wallet -a)
+nibid q bank balances $(nibid keys show wallet -a)
 ```
 #### örnek çıktı:
 ```
+console output:
   balances:
-  - amount: "10000000"
-    denom: uojo
+  - amount: "11000000"
+    denom: unibi
 ```
 
 #### validator oluşturma 
-`MONIKER ADI GIRINIZ` `cüzdan-adı` `website` ve `details` kısımlarını istediğiniz gibi doldurunuz.
 ```
-ojod tx staking create-validator \
---amount=9000000uojo \
---pubkey=$(ojod tendermint show-validator) \
---moniker="MONIKER ADI GIRINIZ" \
---website="https://xyznodes.xyz" \
---details="node runner 💨 PoS Validator ⚛️ testnet addict 💻" \
---chain-id=ojo-devnet \
+nibid tx staking create-validator \
+--amount=10000000unibi \
+--pubkey=$(nibid tendermint show-validator) \
+--moniker="$NODE_MONIKER" \
+--chain-id=nibiru-itn-1 \
 --commission-rate=0.1 \
 --commission-max-rate=0.2 \
 --commission-max-change-rate=0.05 \
 --min-self-delegation=1 \
---fees=2000uojo \
+--fees=2000unibi \
 --from=cüzdan-adı \
 -y
 ```
 ### validator detaylarınızı aşağıdaki komutla görebilirsiniz. 
 ```
-ojod q staking validator $(ojod keys show wallet --bech val -a)
+nibid q staking validator $(nibid keys show wallet --bech val -a)
 ```
