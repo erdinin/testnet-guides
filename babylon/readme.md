@@ -16,5 +16,5 @@
 ```
 ### Otomatik Kurulum
 ```
-test
+source <(curl -s https://raw.githubusercontent.com/erdinin/testnet-guides/main/babylon/install.sh)
 ```
