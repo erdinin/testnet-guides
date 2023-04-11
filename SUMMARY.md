@@ -12,3 +12,4 @@
 * [shardeum](shardeum/readme.md)
 * [uptick](uptick/readme.md)
   * [manual-guide](uptick/manual-guide.md)
+* [test](test.md)
