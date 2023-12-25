@@ -16,4 +16,4 @@
 - Dymension
 
 ### Contact Me
-[twitter](https://twitter.com/xyznodes) [website](https://xyznodes.xyz)
+> [twitter](https://twitter.com/xyznodes) [website](https://xyznodes.xyz)
