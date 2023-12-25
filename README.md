@@ -2,7 +2,6 @@
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=700&lines=xyznodes+is+a+node+runner!)](https://git.io/typing-svg)
 
-
 ### hello frens 👾🧪
 > “node runner 💨 testnet addict 💻 blockchain enthusiast ⛓”
 - I am trying to contribute to the projects working in the PoS (Proof-of-Stake) network at an early stage.
