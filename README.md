@@ -8,12 +8,12 @@
 - I’m interested in validating also i’m looking to collaborations to validate and provide value.
 
 ### Test Networks
-> ar.io Network
-> Avail Project
-> Subsquid Network
-> Santiment
-> Elixir
-> Dymension
+- ar.io Network
+- Avail Project
+- Subsquid Network
+- Santiment
+- Elixir
+- Dymension
 
 ### Contact Me
 > [website](https://www.xyznodes.xyz) | [twitter](https://twitter.com/xyznodes)
