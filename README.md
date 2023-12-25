@@ -16,4 +16,4 @@
 - Dymension
 
 ### Contact Me
-> [website](https://www.xyznodes.xyz) | [twitter](https://twitter.com/xyznodes)
+[<img src='https://user-images.githubusercontent.com/83868103/227937841-6e05b933-9534-49f1-808a-efe087a4f7cd.png' alt='Twitter'  width='16.5%'>](https://twitter.com/xyznodes) [<img src='https://raw.githubusercontent.com/erdinin/testnet-guides/main/utils/xyznodes_8071093-1.png' alt='WEBSITE'  width='16.5%'>](https://xyznodes.xyz)
