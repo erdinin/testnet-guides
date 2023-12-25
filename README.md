@@ -7,9 +7,13 @@
 - I prepare testnet guides, node installation guides, update guides of projects in Turkish language.
 - I’m interested in validating also i’m looking to collaborations to validate and provide value.
 
-### Testnet
->
->
->
+### Test Networks
+> ar.io Network
+> Avail Project
+> Subsquid Network
+> Santiment
+> Elixir
+> Dymension
+
 ### Contact Me
 > [website](https://www.xyznodes.xyz) | [twitter](https://twitter.com/xyznodes)
